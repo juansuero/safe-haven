@@ -784,7 +784,7 @@ with tab6:
     st.markdown("""
     ### 💎 La Paradoja del Safe Haven
     
-    Un perfil de pagos de seguro (** insurance safe haven**) de Spitznagel tiene estas características aparentemente contradictorias:
+    Un perfil de pagos de seguro (insurance safe haven) de Spitznagel tiene estas características aparentemente contradictorias:
     
     ✅ **Retorno aritmético esperado NEGATIVO** → Pierdes dinero "en promedio"  
     ✅ **Retorno geométrico de cartera POSITIVO** → Crecimiento compuesto mejorado  
@@ -986,6 +986,7 @@ st.markdown("""
     <small>Dashboard interactivo basado en los conceptos de Safe Haven de Mark Spitznagel</small>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
