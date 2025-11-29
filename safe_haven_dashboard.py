@@ -59,9 +59,9 @@ with tab1:
     de los posibles resultados. Esto explica por qué las personas no pagarían fortunas por apuestas 
     con valores esperados infinitos o muy altos.
     
-    **Cómo usar:** Ajusta tu riqueza inicial y el porcentaje que estás dispuesto a apostar. Modifica 
-    los payoffs de cada cara del dado (lo que se gana en cada resultado). El gráfico te mostrará el **valor justo** de la apuesta: 
-    el punto donde la media geométrica cruza tu riqueza inicial. Este es el máximo razonable que deberías pagar.
+    **Cómo usar:** Ajusta tu riqueza inicial y el porcentaje que estás dispuesto a apostar (a priori, luego el valor justo te mostrará que tan buena es tu elección).  Modifica 
+    los payoffs de cada cara del dado (lo que se gana en cada resultado). Estos determinarán los **Resultados**. Finalmente, el gráfico te mostrará el **valor justo** de la apuesta: 
+    el punto donde la media geométrica cruza tu riqueza inicial. Este es el máximo razonable que deberías pagar. La solución al problema. 
     """)
     st.markdown("---")
     
@@ -114,7 +114,7 @@ with tab1:
     
     col_a, col_b, col_c = st.columns(3)
     col_a.metric("Media Aritmética", f"${media_arit:,.0f}")
-    col_b.metric("Valor Esperado Bernoulliano", f"${bev:,.0f}")
+    col_b.metric("Valor Esperado Bernoulliano (El dinero con el que puedes esperar acabar)", f"${bev:,.0f}")
     col_c.metric("Media Geométrica", f"${media_geom:,.0f}")
     
     st.latex(r"\text{Emolumentum Medium: } EM = \frac{1}{6}\sum_{i=1}^{6} \ln(W_i)")
@@ -183,7 +183,7 @@ with tab2:
     
     **Cómo usar:** Ajusta los ahorros del comerciante, el valor de las mercancías, y la prima del seguro. 
     Observa cómo el seguro reduce las pérdidas logarítmicas (verticales) más de lo que cuesta en términos 
-    aritméticos (horizontales). Esto muestra que **no es un juego de suma cero**: tanto el comerciante 
+    aritméticos (horizontales), hasta cierto nivel de precio de la prima. Esto muestra que **no es un juego de suma cero**: tanto el comerciante 
     como el asegurador ganan (cada uno en su propio marco).
     """)
     st.markdown("---")
@@ -385,11 +385,11 @@ with tab2:
     
     if ganancia_geometrica > 0:
         st.success(f"""
-        El seguro MEJORA la media geométrica en ${ganancia_geometrica:,.0f} a pesar de ser 
-        actuarialmente desfavorable por ${coste_actuarial_neto:,.0f}. 
+        El seguro MEJORA la media geométrica en {ganancia_geometrica:,.0f} dólares a pesar de ser 
+        actuarialmente desfavorable por {coste_actuarial_neto:,.0f} dólares. 
         
-        ¡No es un juego de suma cero! El comerciante gana en términos geométricos (+${ganancia_geometrica:,.0f}) 
-        y el asegurador gana en términos aritméticos (+${coste_actuarial_neto * n_envios:,.0f} en {n_envios} envíos).
+        ¡No es un juego de suma cero! El comerciante gana en términos geométricos (+ ${ganancia_geometrica:,.0f}) 
+        y el asegurador gana en términos aritméticos (+ ${coste_actuarial_neto * n_envios:,.0f} en {n_envios} envíos).
         """)
     else:
         st.warning(f"⚠️ Con estos parámetros, el seguro NO es beneficioso para el comerciante. La prima es demasiado alta.")
@@ -467,12 +467,12 @@ with tab4:
     col1, col2 = st.columns([1, 2])
     
     with col1:
-        n_sim_n = st.number_input("Simulaciones", min_value=100, max_value=20000, value=10000, step=100, key='niet_sim')
+        n_sim_n = st.number_input("Simulaciones (Recomendadas al menos 1000)", min_value=100, max_value=20000, value=1000, step=100, key='niet_sim')
         n_tiradas_n = st.number_input("Tiradas", min_value=10, max_value=1000, value=300, step=10, key='niet_tiradas')
         
-        ret_perder = st.slider("Retorno (Perder)", -1.0, 0.0, -0.5, 0.05, key='niet_perder')
-        ret_medio = st.slider("Retorno (Medio)", -0.5, 1.0, 0.05, 0.01, key='niet_medio')
-        ret_ganar = st.slider("Retorno (Ganar)", -0.5, 2.0, 0.5, 0.05, key='niet_ganar')
+        ret_perder = st.slider("Retorno (Sacar un 1)", -1.0, 0.0, -0.5, 0.05, key='niet_perder')
+        ret_medio = st.slider("Retorno (Sacar un 2, 3, 4, 5)", -0.5, 1.0, 0.05, 0.01, key='niet_medio')
+        ret_ganar = st.slider("Retorno (Sacar un 6)", -0.5, 2.0, 0.5, 0.05, key='niet_ganar')
     
     retornos_n = np.array([ret_perder, ret_medio, ret_ganar])
     probs_n = np.array([1/6, 4/6, 1/6])
@@ -790,6 +790,7 @@ st.markdown("""
     <small>Dashboard interactivo basado en los conceptos de Safe Haven de Mark Spitznagel</small>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
