@@ -228,7 +228,7 @@ with tab2:
     geométricos) que sufrir 5 pérdidas totales, aunque aritméticamente parezca costoso.
     """)
     
-    st.markdown("---")'''
+    st.markdown("---")
     
     col1, col2 = st.columns([1, 1])
     
@@ -986,6 +986,7 @@ st.markdown("""
     <small>Dashboard interactivo basado en los conceptos de Safe Haven de Mark Spitznagel</small>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
