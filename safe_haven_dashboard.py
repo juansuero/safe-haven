@@ -81,18 +81,6 @@ with tab1:
     """)
     
     st.markdown("---")
-
-    ''' st.markdown("""
-    **Contexto:** Daniel Bernoulli propuso que el valor de una apuesta no debe medirse por su 
-    valor esperado aritmético, sino por su "emolumentum medium" (utilidad media) — la media geométrica 
-    de los posibles resultados. Esto explica por qué las personas no pagarían fortunas por apuestas 
-    con valores esperados infinitos o muy altos.
-    
-    **Cómo usar:** Ajusta tu riqueza inicial y el porcentaje que estás dispuesto a apostar (a priori, luego el valor justo te mostrará que tan buena es tu elección).  Modifica 
-    los payoffs de cada cara del dado (lo que se gana en cada resultado). Estos determinarán los **Resultados**. Finalmente, el gráfico te mostrará el **valor justo** de la apuesta: 
-    el punto donde la media geométrica cruza tu riqueza inicial. Este es el máximo razonable que deberías pagar. La solución al problema. 
-    """)
-    st.markdown("---")'''
     
     col1, col2, col3 = st.columns(3)
     
@@ -240,18 +228,6 @@ with tab2:
     geométricos) que sufrir 5 pérdidas totales, aunque aritméticamente parezca costoso.
     """)
     
-    '''st.markdown("""
-    **Contexto:** Un comerciante envía mercancías de Ámsterdam a San Petersburgo. Históricamente, 
-    5 de cada 100 barcos se pierden por piratas o tormentas (5% de probabilidad de pérdida total). 
-    La aseguradora ofrece una prima "escandalosamente alta" que excede el valor actuarial esperado. 
-    Sin embargo, usando el **emolumentum medium** de Bernoulli, descubrimos que el seguro mejora 
-    la media geométrica del comerciante, aumentando su tasa de crecimiento compuesto a largo plazo.
-    
-    **Cómo usar:** Ajusta los ahorros del comerciante, el valor de las mercancías, y la prima del seguro. 
-    Observa cómo el seguro reduce las pérdidas logarítmicas (verticales) más de lo que cuesta en términos 
-    aritméticos (horizontales), hasta cierto nivel de precio de la prima. Esto muestra que **no es un juego de suma cero**: tanto el comerciante 
-    como el asegurador ganan (cada uno en su propio marco).
-    """)
     st.markdown("---")'''
     
     col1, col2 = st.columns([1, 1])
@@ -507,17 +483,7 @@ with tab3:
     3. **Compara**: Contrasta con la pestaña "Dados de Nietzsche" para ver la realidad
     
     """)
-    
-    '''st.markdown("""
-    **Contexto:** En un universo cuántico hipotético, experimentarías simultáneamente todas las caras 
-    del dado en cada tirada. Tu N (número de muestras) es infinito, por lo que siempre obtienes exactamente 
-    el valor esperado aritmético. Esto representa un mundo **ergódico** donde la media del conjunto 
-    (ensemble average) equivale a la media temporal.
-    
-    **Cómo usar:** Ajusta las probabilidades de cada resultado y observa cómo la riqueza crece de forma 
-    completamente determinista con el valor esperado aritmético. Esta es la "promesa" del valor esperado, 
-    pero solo funciona cuando puedes muestrear todos los universos simultáneamente.
-    """)
+
     st.markdown("---")'''
     
     col1, col2 = st.columns([1, 2])
@@ -599,16 +565,6 @@ with tab4:
     es una **métrica engañosa**. La mediana (experiencia típica) puede ser completamente diferente.
     """)
     
-    '''st.markdown("""
-    **Contexto:** A diferencia del multiverso de Schrödinger, aquí vives en una única línea temporal. 
-    Cada tirada produce UN SOLO resultado. Aunque el valor esperado aritmético sea positivo (+3.3%), 
-    la mayoría de las trayectorias terminan en ruina debido al crecimiento **multiplicativo** y la 
-    **no-ergodicidad**. La media aritmética es una ilusión que no experimentarás en tu camino único.
-    
-    **Cómo usar:** Ejecuta miles de simulaciones para ver la distribución real de resultados. Observa 
-    cómo la mediana (lo que experimentarías típicamente) está muy por debajo de la media aritmética. 
-    La mayoría de los caminos terminan mal, pero unos pocos resultados excepcionales elevan el promedio.
-    """)'''
     st.markdown("---")
     
     col1, col2 = st.columns([1, 2])
@@ -739,17 +695,6 @@ with tab5:
     La teoría dice "Kelly óptimo", pero la práctica favorece Kelly fraccional para evitar ruina psicológica.
     """)
     
-    '''st.markdown("""
-    **Contexto:** El criterio de Kelly maximiza el crecimiento geométrico (la mediana) apostando la 
-    fracción óptima de tu capital. Pero apostar menos (Kelly fraccional) puede mejorar significativamente 
-    los peores escenarios (percentil 5) sacrificando solo un poco del crecimiento mediano. Mantener efectivo 
-    en "reserva" transforma las dinámicas multiplicativas del juego, reduciendo el dolor de las malas rachas.
-    
-    **Cómo usar:** Configura los retornos del dado. El programa calculará automáticamente dos fracciones: 
-    **Kelly Óptimo** (maximiza la mediana) y **Kelly Fraccional** (maximiza el percentil 5, protegiéndote 
-    mejor en los peores casos). Compara ambas estrategias y decide cuánto riesgo quieres tomar.
-    """)
-    '''
     st.markdown("---")
     
     col1, col2 = st.columns([1, 2])
@@ -896,20 +841,6 @@ with tab6:
     💡 **Insight clave**: Un activo puede tener **valor esperado negativo** y aún así ser una inversión 
     racional si mejora tu geometría. No todo es suma cero cuando operas en marcos matemáticos diferentes.
     """)
-
-    
-    '''
-    st.markdown("""
-    **Contexto:** Un contrato de seguro puede tener un **retorno aritmético negativo** (pierdes dinero 
-    en promedio) pero aún así aumentar tu **retorno geométrico** (crecimiento compuesto real). ¿Cómo? 
-    Al pagar cuando más lo necesitas (en las malas rachas), suaviza las pérdidas logarítmicas y mejora 
-    dramáticamente el percentil 5. El "coste" aritmético es una ilusión en un mundo multiplicativo.
-    
-    **Cómo usar:** Configura el perfil del seguro (cuánto paga si sale cara 1 vs. cuánto pierdes en otros casos). 
-    Ajusta el peso de tu cartera entre el dado y el seguro. Observa cómo incluso un seguro "caro" 
-    aritméticamente puede mejorar tu protección (P5) y hasta tu retorno geométrico total.
-    """)
-    '''
     
     st.markdown("---")
     
@@ -1055,6 +986,7 @@ st.markdown("""
     <small>Dashboard interactivo basado en los conceptos de Safe Haven de Mark Spitznagel</small>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
