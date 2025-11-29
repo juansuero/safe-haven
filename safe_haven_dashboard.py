@@ -52,8 +52,37 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
 # ============================================================================
 with tab1:
     st.header("Paradoja de San Petersburgo")
-    
+
     st.markdown("""
+    ### 🎲 ¿Qué es la Paradoja de San Petersburgo?
+    
+    En 1713, Nicolaus Bernoulli propuso un juego con **valor esperado infinito** pero que nadie pagaría 
+    una fortuna por jugar. Su primo Daniel Bernoulli (1738) resolvió esta paradoja introduciendo el 
+    concepto de **"emolumentum medium"** o utilidad media geométrica.
+    
+    **El juego:** Se lanza una moneda repetidamente hasta que salga un número determinado (por ejemplo, el 1). Puede tardar mucho en salir, por lo que el valor esperado es infinito. Pero ¿cuánto pagarías por jugar?
+    
+    **La solución de Bernoulli:** No midas el valor en dinero absoluto, sino en **utilidad logarítmica**. 
+    La media geométrica captura mejor la experiencia real del jugador que debe arriesgar capital finito.
+    
+    ---
+    
+    ### 🎯 Cómo Usar Esta Simulación:
+    
+    1. **Riqueza Inicial**: Tu capital total antes de apostar
+    2. **% Apostado**: Qué fracción de tu riqueza arriesgas en el juego. Más tarde, el valor justo te mostrará que tan buena es tu elección.
+    3. **Payoffs del Dado**: Lo que te pagan si sale cada cara del dado (1-6). Ej, si sale 1 te pagan $1, si sale 4 te pagan $22 (por default, puedes modificar los valores)
+    
+    El gráfico muestra la **media geométrica** de tu riqueza final para diferentes fracciones apostadas. 
+    El punto donde cruza tu riqueza inicial es el **valor justo máximo** que deberías pagar por jugar.
+    
+    💡 **Idea clave**: Aunque la media aritmética puede ser muy alta, la media geométrica (lo que realmente 
+    experimentarías en el largo plazo) suele ser mucho menor. ¡El valor esperado no es tu esperanza!
+    """)
+    
+    st.markdown("---")
+
+    ''' st.markdown("""
     **Contexto:** Daniel Bernoulli propuso que el valor de una apuesta no debe medirse por su 
     valor esperado aritmético, sino por su "emolumentum medium" (utilidad media) — la media geométrica 
     de los posibles resultados. Esto explica por qué las personas no pagarían fortunas por apuestas 
@@ -63,7 +92,7 @@ with tab1:
     los payoffs de cada cara del dado (lo que se gana en cada resultado). Estos determinarán los **Resultados**. Finalmente, el gráfico te mostrará el **valor justo** de la apuesta: 
     el punto donde la media geométrica cruza tu riqueza inicial. Este es el máximo razonable que deberías pagar. La solución al problema. 
     """)
-    st.markdown("---")
+    st.markdown("---")'''
     
     col1, col2, col3 = st.columns(3)
     
@@ -114,7 +143,7 @@ with tab1:
     
     col_a, col_b, col_c = st.columns(3)
     col_a.metric("Media Aritmética", f"${media_arit:,.0f}")
-    col_b.metric("Valor Esperado Bernoulliano (El dinero con el que puedes esperar acabar)", f"${bev:,.0f}")
+    col_b.metric("Valor Esp. Bernoulli (El dinero con el que puedes esperar acabar)", f"${bev:,.0f}")
     col_c.metric("Media Geométrica", f"${media_geom:,.0f}")
     
     st.latex(r"\text{Emolumentum Medium: } EM = \frac{1}{6}\sum_{i=1}^{6} \ln(W_i)")
@@ -173,8 +202,45 @@ with tab1:
 with tab2:
     st.header("El Comerciante de San Petersburgo")
     st.markdown("**¿Vale la pena pagar por un seguro actuarialmente desfavorable?**")
+
+    st.markdown(""" 
+    Daniel Bernoulli planteó este escenario real del comercio marítimo del siglo XVIII:
     
-    st.markdown("""
+    Un comerciante en Ámsterdam envía mercancías a San Petersburgo por mar. Históricamente:
+    - **95% de los barcos** llegan a salvo
+    - **5% se pierden** por tormentas, piratas o naufragios
+    
+    Una compañía aseguradora ofrece cubrir la pérdida total, pero cobra una prima que **excede** 
+    el valor actuarial esperado. En términos aritméticos, el seguro 
+    parece una mala inversión.
+    
+    **La Paradoja:** ¿Por qué un comerciante racional debería pagar estas primas "excesivas"?
+    
+    ---
+    
+    ### 🎯 La Solución: Geometría vs Aritmética
+    
+    Bernoulli demostró que aunque el seguro reduce la **media aritmética** (es actuarialmente desfavorable), 
+    **aumenta la media geométrica** (mejora el crecimiento compuesto del capital).
+    
+    **Clave:** Las pérdidas tienen impacto **logarítmico** (multiplicativo) mayor que su impacto aritmético (aditivo).
+    
+    ---
+    
+    ### 🛠️ Instrucciones de Uso:
+    
+    1. **Ahorros**: Capital líquido del comerciante (independiente de las mercancías)
+    2. **Valor de Mercancías**: Lo que vale el cargamento si llega a destino
+    3. **Probabilidad de Pérdida**: Histórica del 5%, pero puedes ajustarla
+    4. **Prima del Seguro**: Lo que cobra la aseguradora (prueba valores > pérdida esperada)
+
+    Todo estos valores pueden ser cambiados por vosotros.
+    
+    Observa cómo el **mapa logarítmico** revela que pagar 100 primas pequeñas duele menos (en términos 
+    geométricos) que sufrir 5 pérdidas totales, aunque aritméticamente parezca costoso.
+    """)
+    
+    '''st.markdown("""
     **Contexto:** Un comerciante envía mercancías de Ámsterdam a San Petersburgo. Históricamente, 
     5 de cada 100 barcos se pierden por piratas o tormentas (5% de probabilidad de pérdida total). 
     La aseguradora ofrece una prima "escandalosamente alta" que excede el valor actuarial esperado. 
@@ -186,7 +252,7 @@ with tab2:
     aritméticos (horizontales), hasta cierto nivel de precio de la prima. Esto muestra que **no es un juego de suma cero**: tanto el comerciante 
     como el asegurador ganan (cada uno en su propio marco).
     """)
-    st.markdown("---")
+    st.markdown("---")'''
     
     col1, col2 = st.columns([1, 1])
     
@@ -393,6 +459,17 @@ with tab2:
         """)
     else:
         st.warning(f"⚠️ Con estos parámetros, el seguro NO es beneficioso para el comerciante. La prima es demasiado alta.")
+    st.markdown("""
+    ---
+    ### 🧠 Lecciones Clave:
+    
+    1. **El valor esperado aritmético NO es tu esperanza** cuando los resultados se componen multiplicativamente
+    2. **La media geométrica** captura mejor la experiencia real de un agente con capital finito
+    3. **Asimetría de pérdidas**: Perder 50% requiere ganar 100% para recuperarse → Impacto logarítmico
+    4. **El seguro como anti-fragilidad**: Convierte riesgo multiplicativo en coste aditivo predecible
+    5. **Marcos complementarios**: Aritmética para el asegurador (diversificación), geometría para el comerciante (concentración)
+
+    """)
 
 # ============================================================================
 # TAB 3: DADOS SCHRÖDINGER
@@ -400,8 +477,38 @@ with tab2:
 with tab3:
     st.header("Dados de Schrödinger (Multiverso Ergódico)")
     st.markdown("**Experimentas TODOS los resultados simultáneamente** — N = ∞")
+
+        st.markdown("""
+    ### 🔬 Ergodicidad y el Multiverso Cuántico
     
-    st.markdown("""
+    En mecánica cuántica, Schrödinger propuso que los sistemas existen en **superposición** — múltiples 
+    estados simultáneamente hasta la observación. Aplicado a las finanzas:
+    
+    **Mundo Ergódico (Schrödinger):**
+    - Experimentas **todos** los resultados posibles en cada tirada
+    - Tu N efectivo es **infinito** → Siempre obtienes el valor esperado exacto
+    - La media del conjunto (ensemble average) = media temporal (time average)
+    - **Ley de los Grandes Números** funciona perfectamente
+    
+    **Por qué NO vivimos aquí:**
+    - En realidad, solo experimentas UN resultado por tirada (N=1)
+    - No puedes diversificar a través de universos paralelos
+    - El valor esperado es una ilusión que nunca experimentarás
+    
+    ---
+    
+    ### 🎯 Cómo Usar Esta Simulación:
+    
+    Esta sección muestra el **mundo ideal** donde el valor esperado aritmético sí predice tu resultado. 
+    Es el mundo que asumen los modelos tradicionales de finanzas (CAPM, teoría de portafolio moderna).
+    
+    1. **Probabilidades**: Ajusta la probabilidad de cada resultado
+    2. **Observa**: La trayectoria es completamente determinista
+    3. **Compara**: Contrasta con la pestaña "Dados de Nietzsche" para ver la realidad
+    
+    """)
+    
+    '''st.markdown("""
     **Contexto:** En un universo cuántico hipotético, experimentarías simultáneamente todas las caras 
     del dado en cada tirada. Tu N (número de muestras) es infinito, por lo que siempre obtienes exactamente 
     el valor esperado aritmético. Esto representa un mundo **ergódico** donde la media del conjunto 
@@ -411,7 +518,7 @@ with tab3:
     completamente determinista con el valor esperado aritmético. Esta es la "promesa" del valor esperado, 
     pero solo funciona cuando puedes muestrear todos los universos simultáneamente.
     """)
-    st.markdown("---")
+    st.markdown("---")'''
     
     col1, col2 = st.columns([1, 2])
     
@@ -451,8 +558,48 @@ with tab3:
 with tab4:
     st.header("Dados de Nietzsche (Una Sola Realidad)")
     st.markdown("**Experimentas UN SOLO resultado por tirada** — N = 1")
+
+        st.markdown("""
+    ### 🎭 El Eterno Retorno y la No-Ergodicidad
     
-    st.markdown("""
+    Friedrich Nietzsche propuso el experimento mental del "eterno retorno": imagina que vivirás tu vida exactamente igual, infinitas veces. 
+    No puedes promediar sobre vidas alternativas — estás atrapado en UNA trayectoria.
+    
+    **Mundo No-Ergódico (Nietzsche):**
+    - Solo experimentas **un** resultado por tirada
+    - Tu N = 1 → Gran variabilidad en resultados posibles
+    - Ensemble average ≠ Time average
+    - **Crecimiento multiplicativo** crea asimetría brutal
+    
+    **La Gran Ilusión:**
+    - Valor esperado aritmético: +3.3% (suena bien)
+    - Retorno geométrico mediano: Negativo (ruina eventual)
+    - **La mayoría de los caminos terminan mal**
+    
+    ---
+    
+    ### 📊 Por Qué Ocurre Esto:
+    
+    En un proceso multiplicativo:
+    - Perder 50% requiere ganar 100% para recuperarte
+    - Las pérdidas duelen más (logarítmicamente) que las ganancias equivalentes
+    - Unos pocos resultados extremos elevan el promedio aritmético
+    - Pero TÚ probablemente experimentarás la mediana (mucho menor)
+    
+    ---
+    
+    ### 🎯 Cómo Usar Esta Simulación:
+    
+    1. **Ejecuta miles de simulaciones** para ver la distribución real
+    2. **Observa la mediana** (línea negra) — esto es lo que típicamente experimentarías
+    3. **Compara P5 vs P95** — la dispersión de resultados posibles
+    4. **Mira el histograma** — la mayoría termina en pérdida, unos pocos con ganancias extremas
+    
+    💡 **Lección**: En finanzas reales (reinversión de ganancias), el valor esperado aritmético 
+    es una **métrica engañosa**. La mediana (experiencia típica) puede ser completamente diferente.
+    """)
+    
+    '''st.markdown("""
     **Contexto:** A diferencia del multiverso de Schrödinger, aquí vives en una única línea temporal. 
     Cada tirada produce UN SOLO resultado. Aunque el valor esperado aritmético sea positivo (+3.3%), 
     la mayoría de las trayectorias terminan en ruina debido al crecimiento **multiplicativo** y la 
@@ -461,7 +608,7 @@ with tab4:
     **Cómo usar:** Ejecuta miles de simulaciones para ver la distribución real de resultados. Observa 
     cómo la mediana (lo que experimentarías típicamente) está muy por debajo de la media aritmética. 
     La mayoría de los caminos terminan mal, pero unos pocos resultados excepcionales elevan el promedio.
-    """)
+    """)'''
     st.markdown("---")
     
     col1, col2 = st.columns([1, 2])
@@ -539,8 +686,60 @@ with tab4:
 # ============================================================================
 with tab5:
     st.header("El Truco: Kelly y Reserva de Efectivo")
-    
+
+
     st.markdown("""
+    
+    John Larry Kelly Jr. (Bell Labs) descubrió la fórmula para maximizar la tasa de crecimiento logarítmico 
+    del capital en apuestas repetidas. Es la **única** estrategia que maximiza el crecimiento geométrico.
+    
+    **Fórmula Kelly (caso general):**
+    ```
+    f* = arg max Σ p_i · ln(1 + f · r_i)
+    ```
+    
+    Donde:
+    - **f**: Fracción del capital a apostar
+    - **p_i**: Probabilidad del resultado i
+    - **r_i**: Retorno del resultado i
+    
+    ---
+    
+    ### 🛡️ El Truco: Kelly Fraccional
+    
+    Aunque Kelly maximiza la **mediana**, apostar menos puede mejorar dramáticamente el **percentil 5** 
+    (tus peores escenarios) con solo una pequeña reducción en el crecimiento mediano.
+    
+    **Por qué funciona:**
+    - Mantener efectivo en reserva **amortigua** las malas rachas
+    - Transforma dinámicas multiplicativas en más "aditivas"
+    - Reduce el **riesgo de ruina** sustancialmente
+    - Sacrificio de mediana: Mínimo
+    - Mejora de P5: Masiva 
+    
+    ---
+    
+    ### 📈 Dos Estrategias Óptimas:
+    
+    1. **Kelly Óptimo** (línea sólida verde): Maximiza la mediana → Mejor crecimiento promedio
+    2. **Kelly Fraccional** (línea punteada naranja): Maximiza el P5 → Mejor protección contra ruina
+    
+    **Trade-off**: ¿Prefieres ganar más "en promedio" o dormir mejor (menos riesgo de pérdidas catastróficas)?
+    
+    ---
+    
+    ### 🎯 Cómo Usar Esta Simulación:
+    
+    1. **Configura los retornos** del dado (peor caso, caso medio, mejor caso)
+    2. **Observa las dos fracciones óptimas** calculadas automáticamente
+    3. **Analiza el gráfico**: Mediana vs P5 para diferentes fracciones apostadas
+    4. **Decide tu estrategia**: ¿Full Kelly o Kelly fraccional?
+    
+    💡 **Aplicación práctica**: Warren Buffett usa ~Kelly/2 (mitad de Kelly). Ed Thorp recomendaba Kelly/4 o Kelly/3. 
+    La teoría dice "Kelly óptimo", pero la práctica favorece Kelly fraccional para evitar ruina psicológica.
+    """)
+    
+    '''st.markdown("""
     **Contexto:** El criterio de Kelly maximiza el crecimiento geométrico (la mediana) apostando la 
     fracción óptima de tu capital. Pero apostar menos (Kelly fraccional) puede mejorar significativamente 
     los peores escenarios (percentil 5) sacrificando solo un poco del crecimiento mediano. Mantener efectivo 
@@ -550,6 +749,7 @@ with tab5:
     **Kelly Óptimo** (maximiza la mediana) y **Kelly Fraccional** (maximiza el percentil 5, protegiéndote 
     mejor en los peores casos). Compara ambas estrategias y decide cuánto riesgo quieres tomar.
     """)
+    '''
     st.markdown("---")
     
     col1, col2 = st.columns([1, 2])
@@ -635,7 +835,70 @@ with tab5:
 # ============================================================================
 with tab6:
     st.header("Apuestas Secundarias: Seguro como Safe Haven")
+
+    st.markdown("""
+    ### 💎 La Paradoja del Safe Haven
     
+    Un perfil de pagos de seguro (** insurance safe haven**) de Spitznagel tiene estas características aparentemente contradictorias:
+    
+    ✅ **Retorno aritmético esperado NEGATIVO** → Pierdes dinero "en promedio"  
+    ✅ **Retorno geométrico de cartera POSITIVO** → Crecimiento compuesto mejorado  
+    ✅ **Correlación negativa en crisis** → Paga cuando más lo necesitas  
+    ✅ **Mejora dramática del P5** → Protección contra ruina  
+    
+    **¿Cómo es posible?** Porque en un mundo multiplicativo, la aritmética miente.
+    
+    ---
+    
+    ### 🔍 Diferencia con Diversificación Tradicional:
+    
+    **Diversificación (ej. bonos):**
+    - Reduce volatilidad → ✓
+    - Reduce retorno aritmético → ✗ (típicamente también reduce geometría)
+    - Payoff simétrico → No ayuda específicamente en crisis
+    
+    **Safe Haven (ej. puts, oro, TIPs):**
+    - Aumenta volatilidad aritmética → ✗ (parece costoso)
+    - **Aumenta** retorno geométrico → ✓✓✓
+    - Payoff asimétrico → Paga explosivamente en crisis, pierde 1× en tiempos normales
+    
+    ---
+    
+    ### 📐 La Geometría del Seguro:
+    
+    **Ejemplo numérico:**
+    - Dado solo: P(perder 50%) = 1/6, P(ganar 5%) = 4/6, P(ganar 50%) = 1/6
+    - Valor esperado aritmético: +3.3% ← Suena bien
+    - Retorno geométrico: Negativo ← Ruina eventual
+    
+    **Con seguro (91% dado + 9% seguro que paga 6× cuando cae el dado):**
+    - Retorno aritmético del seguro: **-50%** ← Parece terrible
+    - Retorno geométrico combinado: **+0.5%** ← ¡Ahora positivo!
+    - Mejora de P5: **+300%** ← Protección masiva
+    
+    **La magia:** El seguro "tapa" la pérdida del -50% (el evento ruinoso) sacrificando solo un poco 
+    de rendimiento en los casos +5%. La asimetría logarítmica hace que valga la pena.
+    
+    ---
+    
+    ### 🎯 Cómo Usar Esta Simulación:
+    
+    1. **Configura el dado** (tu activo principal arriesgado)
+    2. **Configura el seguro**:
+       - **Pago si Cara 1**: Cuántas veces la prima paga el seguro en crisis (ej. 6×)
+       - **Pérdida si Otra Cara**: Típicamente -1× (pierdes toda la prima)
+    3. **Ajusta el peso**: ¿Qué % de tu cartera dedicas al seguro? (Óptimo típico: 5-15%)
+    4. **Observa los resultados**:
+       - Retorno aritmético del seguro (negativo)
+       - Retorno geométrico combinado (ojalá positivo)
+       - Mejora del P5 (protección)
+    
+    💡 **Insight clave**: Un activo puede tener **valor esperado negativo** y aún así ser una inversión 
+    racional si mejora tu geometría. No todo es suma cero cuando operas en marcos matemáticos diferentes.
+    """)
+
+    
+    '''
     st.markdown("""
     **Contexto:** Un contrato de seguro puede tener un **retorno aritmético negativo** (pierdes dinero 
     en promedio) pero aún así aumentar tu **retorno geométrico** (crecimiento compuesto real). ¿Cómo? 
@@ -646,6 +909,8 @@ with tab6:
     Ajusta el peso de tu cartera entre el dado y el seguro. Observa cómo incluso un seguro "caro" 
     aritméticamente puede mejorar tu protección (P5) y hasta tu retorno geométrico total.
     """)
+    '''
+    
     st.markdown("---")
     
     col1, col2 = st.columns([1, 2])
@@ -790,6 +1055,7 @@ st.markdown("""
     <small>Dashboard interactivo basado en los conceptos de Safe Haven de Mark Spitznagel</small>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
