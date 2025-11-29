@@ -478,7 +478,7 @@ with tab3:
     st.header("Dados de Schrödinger (Multiverso Ergódico)")
     st.markdown("**Experimentas TODOS los resultados simultáneamente** — N = ∞")
 
-        st.markdown("""
+    st.markdown("""
     ### 🔬 Ergodicidad y el Multiverso Cuántico
     
     En mecánica cuántica, Schrödinger propuso que los sistemas existen en **superposición** — múltiples 
@@ -1055,6 +1055,7 @@ st.markdown("""
     <small>Dashboard interactivo basado en los conceptos de Safe Haven de Mark Spitznagel</small>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
