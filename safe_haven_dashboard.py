@@ -559,7 +559,7 @@ with tab4:
     st.header("Dados de Nietzsche (Una Sola Realidad)")
     st.markdown("**Experimentas UN SOLO resultado por tirada** — N = 1")
 
-        st.markdown("""
+    st.markdown("""
     ### 🎭 El Eterno Retorno y la No-Ergodicidad
     
     Friedrich Nietzsche propuso el experimento mental del "eterno retorno": imagina que vivirás tu vida exactamente igual, infinitas veces. 
@@ -1055,6 +1055,7 @@ st.markdown("""
     <small>Dashboard interactivo basado en los conceptos de Safe Haven de Mark Spitznagel</small>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
