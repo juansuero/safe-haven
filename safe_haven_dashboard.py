@@ -31,7 +31,7 @@ st.info(f"""
 
 {MENSAJE}
 
-🔗 **Sígueme en X:** [{PERFIL_X}](https://x.com/{PERFIL_X.replace('@', '')})  |  📺 **YouTube:** [Ver Canal]({LINK_YOUTUBE})  |  🎧 **Spotify:** [Escuchar Aquí]({LINK_SPOTIFY})
+🔗 **Sígueme en X:** [{PERFIL_X}](https://x.com/{PERFIL_X.replace('@', '')})  |  📺 **YouTube:** [Ver Episodio]({LINK_YOUTUBE})  |  🎧 **Spotify:** [Escuchar Aquí]({LINK_SPOTIFY})
 """)
 
 st.markdown("---")
@@ -790,5 +790,6 @@ st.markdown("""
     <small>Dashboard interactivo basado en los conceptos de Safe Haven de Mark Spitznagel</small>
 </div>
 """, unsafe_allow_html=True)
+
 
 
