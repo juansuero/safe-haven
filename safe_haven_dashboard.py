@@ -484,7 +484,7 @@ with tab3:
     
     """)
 
-    st.markdown("---")'''
+    st.markdown("---")
     
     col1, col2 = st.columns([1, 2])
     
@@ -986,6 +986,7 @@ st.markdown("""
     <small>Dashboard interactivo basado en los conceptos de Safe Haven de Mark Spitznagel</small>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
