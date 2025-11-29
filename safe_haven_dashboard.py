@@ -21,9 +21,9 @@ st.title("🎲 'Safe Haven' de Mark Spitznagel - Parte 1")
 # EDITA AQUÍ TU INFORMACIÓN
 NOMBRE = "Juan Suero"
 PERFIL_X = "@thejuansuero"
-LINK_YOUTUBE = "https://youtube.com/@soloseñal"
+LINK_YOUTUBE = "https://youtu.be/0xUUzlusyyk"
 LINK_SPOTIFY = "https://open.spotify.com/show/0xvP4JF7dJm5SjF8vfA9u6?si=f9ba713100d1484f"
-MENSAJE = "Este dashboard está basado en mi episodio sobre la Parte 1 de Safe Haven de Mark Spitznagel, el cual está subido en YouTube (https://youtu.be/0xUUzlusyyk), Spotify y otras plataformas de pódcast. ¡Si te gusta este dashboard, seguramente te interese echarle un vistazo!"
+MENSAJE = "Este dashboard está basado en mi episodio sobre la Parte 1 de Safe Haven de Mark Spitznagel, el cual está subido en YouTube, Spotify y otras plataformas de pódcast. ¡Si te gusta este dashboard, seguramente te interese echarle un vistazo!"
 
 # Caja de información del autor
 st.info(f"""
@@ -790,4 +790,5 @@ st.markdown("""
     <small>Dashboard interactivo basado en los conceptos de Safe Haven de Mark Spitznagel</small>
 </div>
 """, unsafe_allow_html=True)
+
 
