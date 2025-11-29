@@ -58,8 +58,6 @@ El dashboard se abrirá automáticamente en tu navegador en `http://localhost:85
 
 ## 📊 Datos
 
-El proyecto utiliza datos históricos del S&P 500 con dividendos incluidos (`sp500div.csv`). Este archivo debe estar presente en el mismo directorio que el script principal.
-
 ## 🎨 Características
 
 - **Visualizaciones Interactivas**: Gráficos dinámicos con Matplotlib
@@ -95,13 +93,10 @@ Implementa y visualiza el criterio de Kelly para tamaño óptimo de posiciones e
 safe-haven-dashboard/
 │
 ├── safe_haven_dashboard.py    # Script principal del dashboard
-├── sp500div.csv                # Datos históricos del S&P 500
 ├── requirements.txt            # Dependencias de Python
 ├── README.md                   # Este archivo
 ├── LICENSE                     # Licencia MIT
 ├── .gitignore                  # Archivos a ignorar por Git
-├── DEPLOY.md                   # Guía de despliegue
-└── CONTRIBUTING.md             # Guía de contribución
 ```
 
 ## 📖 Referencias
@@ -139,3 +134,4 @@ Este dashboard tiene fines educativos y de divulgación. No constituye asesorami
 ---
 
 ⭐ Si te resulta útil este proyecto, ¡considera darle una estrella en GitHub!
+
